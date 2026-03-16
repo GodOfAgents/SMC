@@ -33,7 +33,7 @@ function FaqItem({ question, answer }: FaqItemProps) {
     <div className="rounded-2xl border border-slate-100 bg-slate-50/50 p-6 cursor-pointer" onClick={() => setOpen(o => !o)}>
       <button 
         className="flex w-full items-center justify-between text-left" 
-        aria-expanded={open ? 'true' : 'false'}
+        {...(open ? { "aria-expanded": "true" } : { "aria-expanded": "false" })}
         aria-label={open ? 'Close answer' : 'Open answer'}
       >
         <span className="font-bold text-forest-green">{question}</span>
@@ -317,7 +317,7 @@ export default function App() {
           <button 
             className="lg:hidden text-forest-green p-2 z-50" 
             aria-label={mobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
-            aria-expanded={mobileMenuAriaExpanded}
+            {...(mobileMenuOpen ? { "aria-expanded": "true" } : { "aria-expanded": "false" })}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="material-symbols-outlined text-2xl">
