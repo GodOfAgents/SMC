@@ -31,16 +31,22 @@ function FaqItem({ question, answer }: FaqItemProps) {
 
   return (
     <div className="rounded-2xl border border-slate-100 bg-slate-50/50 p-6 cursor-pointer" onClick={() => setOpen(o => !o)}>
-      <button className="flex w-full items-center justify-between text-left" aria-expanded={open}>
+      <button 
+        className="flex w-full items-center justify-between text-left" 
+        aria-expanded={open}
+        aria-label={open ? 'Close answer' : 'Open answer'}
+      >
         <span className="font-bold text-forest-green">{question}</span>
         <span
-          className="material-symbols-outlined transition-transform duration-300"
-          style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}
+          className={`material-symbols-outlined transition-transform duration-300 ${open ? 'rotate-180' : 'rotate-0'}`}
         >
           expand_more
         </span>
       </button>
-      <div ref={bodyRef} style={{ height: 0, overflow: 'hidden', opacity: 0 }}>
+      <div 
+        ref={bodyRef} 
+        className="ag-collapse"
+      >
         <p className="mt-4 text-sm text-slate-600">{answer}</p>
       </div>
     </div>
@@ -92,6 +98,7 @@ function AnimatedStat({ value, suffix, label, accentColor }: AnimatedStatProps) 
 
 // ── Main App ─────────────────────────────────────────────────────
 export default function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
   const heroImageRef = useRef<HTMLDivElement>(null);
@@ -302,9 +309,28 @@ export default function App() {
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </a>
           </nav>
-          <button className="lg:hidden text-forest-green">
-            <span className="material-symbols-outlined">menu</span>
+          <button 
+            className="lg:hidden text-forest-green p-2 z-50" 
+            aria-label={mobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <span className="material-symbols-outlined text-2xl">
+              {mobileMenuOpen ? 'close' : 'menu'}
+            </span>
           </button>
+        </div>
+
+        {/* Mobile Menu Overlay */}
+        <div className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+          <div className="absolute inset-0 bg-forest-green/90 backdrop-blur-xl" onClick={() => setMobileMenuOpen(false)} />
+          <nav className="relative flex flex-col items-center justify-center h-full gap-8 text-white p-6">
+            <a className="text-2xl font-bold hover:text-primary transition-colors" href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
+            <a className="text-2xl font-bold hover:text-primary transition-colors" href="#partners" onClick={() => setMobileMenuOpen(false)}>Partners</a>
+            <a className="text-2xl font-bold hover:text-primary transition-colors" href="#compliance" onClick={() => setMobileMenuOpen(false)}>Compliance</a>
+            <a className="rounded-full bg-primary px-8 py-3 text-lg font-bold text-forest-green shadow-lg shadow-primary/30" href="#request" onClick={() => setMobileMenuOpen(false)}>
+              Request Manpower
+            </a>
+          </nav>
         </div>
       </header>
 
@@ -686,7 +712,12 @@ export default function App() {
                     Submit Request
                     <span className="material-symbols-outlined">send</span>
                   </button>
-                  <a className="rounded-xl bg-white/10 px-8 py-5 text-center font-bold hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 border border-white/10" href="https://wa.me/966XXXXXXXXX">
+                  <a 
+                    className="rounded-xl bg-white/10 px-8 py-5 text-center font-bold hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 border border-white/10" 
+                    href="https://wa.me/966500000000"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <span className="material-symbols-outlined text-sun-yellow">chat</span>
                     WhatsApp Now
                   </a>
@@ -709,8 +740,15 @@ export default function App() {
             </div>
             <div className="flex flex-wrap justify-center gap-8 text-sm font-semibold text-slate-500">
               <a className="hover:text-forest-green transition-colors duration-300" href="mailto:info@shamsmodern.com">info@shamsmodern.com</a>
-              <span>+966 12 345 6789</span>
-              <a className="hover:text-forest-green transition-colors duration-300" href="#">LinkedIn</a>
+              <span>+966 12 667 0000</span>
+              <a 
+                className="hover:text-forest-green transition-colors duration-300" 
+                href="https://linkedin.com/company/shams-modern-contracting"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
             </div>
             <p className="text-xs font-medium text-slate-400">© 2024 Shams Modern Contracting LLC. All rights reserved.</p>
           </div>
