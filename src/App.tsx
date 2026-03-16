@@ -99,6 +99,7 @@ function AnimatedStat({ value, suffix, label, accentColor }: AnimatedStatProps) 
 // ── Main App ─────────────────────────────────────────────────────
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuAriaExpanded = mobileMenuOpen ? 'true' : 'false';
   const headerRef = useRef<HTMLElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
   const heroImageRef = useRef<HTMLDivElement>(null);
@@ -287,7 +288,7 @@ export default function App() {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="min-h-screen bg-slate-50">
 
       {/* ── Header ─────────────────────────────────────────────── */}
       <header
@@ -316,7 +317,7 @@ export default function App() {
           <button 
             className="lg:hidden text-forest-green p-2 z-50" 
             aria-label={mobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
-            aria-expanded={mobileMenuOpen ? 'true' : 'false'}
+            aria-expanded={mobileMenuAriaExpanded}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="material-symbols-outlined text-2xl">
