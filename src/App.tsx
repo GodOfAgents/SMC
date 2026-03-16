@@ -33,7 +33,7 @@ function FaqItem({ question, answer }: FaqItemProps) {
     <div className="rounded-2xl border border-slate-100 bg-slate-50/50 p-6 cursor-pointer" onClick={() => setOpen(o => !o)}>
       <button 
         className="flex w-full items-center justify-between text-left" 
-        aria-expanded={open}
+        aria-expanded={open ? 'true' : 'false'}
         aria-label={open ? 'Close answer' : 'Open answer'}
       >
         <span className="font-bold text-forest-green">{question}</span>
@@ -283,12 +283,12 @@ export default function App() {
   };
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+    <div className="flex flex-col">
 
       {/* ── Header ─────────────────────────────────────────────── */}
       <header
         ref={headerRef}
-        className="sticky top-0 z-50 w-full ag-glass-light border-b border-white/40"
+        className="sticky top-0 z-50 w-full ag-glass-light border-b border-black/5 shadow-xl shadow-forest-green/5"
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
           <div className="flex items-center gap-3">
