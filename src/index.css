@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #11d432;
+  --color-sun-yellow: #fbbf24;
+  --color-forest-green: #064e3b;
+  --color-background-light: #f6f8f6;
+  --color-background-dark: #102213;
+  --font-display: "Inter", sans-serif;
+
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee2: marquee2 30s linear infinite;
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+  @keyframes marquee2 {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
+  }
+}
+
+body {
+  font-family: var(--font-display);
+}
+
+/* ── Antigravity Layer ─────────────────────────────────────────── */
+
+/* 3D perspective wrapper utility */
+.ag-perspective {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+
+/* Floating cards base */
+.ag-float {
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+/* Glassmorphism base */
+.ag-glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Glassmorphism on light BG */
+.ag-glass-light {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* GSAP initial hidden states */
+.gsap-hero-text {
+  opacity: 0;
+  transform: translateY(32px);
+}
+.gsap-card {
+  opacity: 0;
+  transform: translateY(40px);
+}
+.gsap-slide-left {
+  opacity: 0;
+  transform: translateX(-48px);
+}
+.gsap-slide-right {
+  opacity: 0;
+  transform: translateX(48px);
+}
+.gsap-fade {
+  opacity: 0;
+}
+.gsap-scale-in {
+  opacity: 0;
+  transform: scale(0.7);
+}
+.gsap-header {
+  transform: translateY(-100%);
+}
+
+/* Process line draw */
+.process-line {
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+/* Counting stat display */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── prefers-reduced-motion kill-switch ────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    will-change: auto !important;
+  }
+
+  /* Reset GSAP initial states so content is visible */
+  .gsap-hero-text,
+  .gsap-card,
+  .gsap-slide-left,
+  .gsap-slide-right,
+  .gsap-fade,
+  .gsap-scale-in,
+  .gsap-header {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .process-line {
+    transform: scaleX(1) !important;
+  }
+}
