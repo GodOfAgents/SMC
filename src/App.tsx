@@ -114,12 +114,16 @@ export default function App() {
     if (prefersReduced) return;
 
     // ── Header slide down ──────────────────────────────────────
-    gsap.from(headerRef.current, {
-      y: -100,
-      duration: 0.7,
-      ease: 'power3.out',
-      delay: 0.1,
-    });
+    gsap.fromTo(headerRef.current, 
+      { y: -100, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.1,
+      }
+    );
 
     // ── Hero text staggered entrance ──────────────────────────
     if (heroTextRef.current) {
@@ -288,7 +292,7 @@ export default function App() {
       {/* ── Header ─────────────────────────────────────────────── */}
       <header
         ref={headerRef}
-        className="sticky top-0 z-50 w-full ag-glass-light border-b border-black/5 shadow-xl shadow-forest-green/5"
+        className="fixed top-0 left-0 z-50 w-full ag-glass-light border-b border-black/5 shadow-xl shadow-forest-green/5"
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
           <div className="flex items-center gap-3">
@@ -312,6 +316,7 @@ export default function App() {
           <button 
             className="lg:hidden text-forest-green p-2 z-50" 
             aria-label={mobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
+            aria-expanded={mobileMenuOpen ? 'true' : 'false'}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="material-symbols-outlined text-2xl">
@@ -334,7 +339,7 @@ export default function App() {
         </div>
       </header>
 
-      <main className="flex-1">
+      <main className="pt-20">
 
         {/* ── Hero ──────────────────────────────────────────────── */}
         <section className="relative overflow-hidden bg-white px-6 py-16 lg:px-12 lg:py-24">
@@ -673,8 +678,8 @@ export default function App() {
               <form className="space-y-8 relative">
                 <div className="grid gap-6 md:grid-cols-2">
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-primary">Project Type</label>
-                    <select className="w-full rounded-xl border-none bg-white/10 p-4 text-white focus:ring-2 focus:ring-primary transition-all duration-300 outline-none">
+                    <label htmlFor="project-type" className="text-xs font-bold uppercase tracking-widest text-primary">Project Type</label>
+                    <select id="project-type" className="w-full rounded-xl border-none bg-white/10 p-4 text-white focus:ring-2 focus:ring-primary transition-all duration-300 outline-none">
                       <option className="text-slate-900">Commercial Construction</option>
                       <option className="text-slate-900">Industrial / Oil &amp; Gas</option>
                       <option className="text-slate-900">Infrastructure</option>
@@ -682,8 +687,8 @@ export default function App() {
                     </select>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-primary">Manpower Category</label>
-                    <select className="w-full rounded-xl border-none bg-white/10 p-4 text-white focus:ring-2 focus:ring-primary transition-all duration-300 outline-none">
+                    <label htmlFor="manpower-category" className="text-xs font-bold uppercase tracking-widest text-primary">Manpower Category</label>
+                    <select id="manpower-category" className="w-full rounded-xl border-none bg-white/10 p-4 text-white focus:ring-2 focus:ring-primary transition-all duration-300 outline-none">
                       <option className="text-slate-900">Civil Workers</option>
                       <option className="text-slate-900">Electrical Team</option>
                       <option className="text-slate-900">Mechanical/Welding</option>
@@ -691,20 +696,20 @@ export default function App() {
                     </select>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-primary">Est. Duration</label>
-                    <select className="w-full rounded-xl border-none bg-white/10 p-4 text-white focus:ring-2 focus:ring-primary transition-all duration-300 outline-none">
+                    <label htmlFor="est-duration" className="text-xs font-bold uppercase tracking-widest text-primary">Est. Duration</label>
+                    <select id="est-duration" className="w-full rounded-xl border-none bg-white/10 p-4 text-white focus:ring-2 focus:ring-primary transition-all duration-300 outline-none">
                       <option className="text-slate-900">Less than 3 months</option>
                       <option className="text-slate-900">3-12 months</option>
                       <option className="text-slate-900">Yearly Contract</option>
                     </select>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-primary">Total Workers Needed</label>
-                    <input className="w-full rounded-xl border-none bg-white/10 p-4 text-white placeholder:text-white/40 focus:ring-2 focus:ring-primary transition-all duration-300 outline-none" placeholder="e.g. 50" type="number" />
+                    <label htmlFor="workers-needed" className="text-xs font-bold uppercase tracking-widest text-primary">Total Workers Needed</label>
+                    <input id="workers-needed" className="w-full rounded-xl border-none bg-white/10 p-4 text-white placeholder:text-white/40 focus:ring-2 focus:ring-primary transition-all duration-300 outline-none" placeholder="e.g. 50" type="number" />
                   </div>
                   <div className="md:col-span-2 space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-primary">Project Location</label>
-                    <input className="w-full rounded-xl border-none bg-white/10 p-4 text-white placeholder:text-white/40 focus:ring-2 focus:ring-primary transition-all duration-300 outline-none" placeholder="e.g. NEOM, Jeddah, Riyadh" type="text" />
+                    <label htmlFor="project-location" className="text-xs font-bold uppercase tracking-widest text-primary">Project Location</label>
+                    <input id="project-location" className="w-full rounded-xl border-none bg-white/10 p-4 text-white placeholder:text-white/40 focus:ring-2 focus:ring-primary transition-all duration-300 outline-none" placeholder="e.g. NEOM, Jeddah, Riyadh" type="text" />
                   </div>
                 </div>
                 <div className="flex flex-col gap-4 sm:flex-row">
