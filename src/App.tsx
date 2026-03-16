@@ -7,6 +7,17 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+// Import local assets
+import civilWorker from '../assets/images/Civil worker.png';
+import electricalWorks from '../assets/images/Electrical works.png';
+import hvacWorkers from '../assets/images/HVAC Workers.png';
+import plumbingPiping from '../assets/images/Plumbing & piping.png';
+import mechanicalEngineer from '../assets/images/machenical engineer.png';
+import welders from '../assets/images/welders.png';
+import forkLiftOperator from '../assets/images/Fork lift oprator.png';
+import metalFactory from '../assets/images/Matel factory.jpeg';
+import craneOperator from '../assets/images/crane oprator.jpeg';
+
 gsap.registerPlugin(ScrollTrigger);
 
 // ── FAQ Accordion ────────────────────────────────────────────────
@@ -532,12 +543,15 @@ export default function App() {
             </div>
             <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
               {[
-                { src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDbUao5DQpULnEYfWxVDtkhxBFgxnddG5C-L9iBx6Pv4ZEg9YmNNmZmFIoF3m1bq564fYNt7O_S4qTnOSXZut3Fc6AUt0OqOLLRcpiVeLFaJ1ohHUnQgTzMQIWMP5jC_v4JhbM59Or8Vjh0OejzkX-_15dUHTyhxu9dGclC9YPG2d1uQZ9CruSDz8AR_pTBTX8gXC04AUEiTdGETvvzVPL7bTLnrwx10NCEmbUPGCAcjBIl0Z8tIuHANw08PILzeyjC4TkvsXJaQQqU', alt: 'Site Construction 1' },
-                { src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCgFkO46jO0N1l_6DN28BAcvN4pYFXI_PUZb-2iNt_cZK3iLczmbmQICutjfH3AKBXneY21t3b5ydVCXGO25rIYn5G-y6SqbIwwUieiO11dJtx7fSi2Alhh0et8NXAtY-ihfYOLnpEzP-KWRBsM6HiWK9_gZAK6FzpqSaCzwI8GzDx7oQp_-LNbz3QcH0ak6ukH_hSh10IV9jGogDME6PsIEd1dfY5kW31pQpogyHI8uDwJD-GRfaRFJN7pjcKVRI9WkoK6T9nWGTiB', alt: 'Engineering detail' },
-                { src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCLlrB5SGdcQ-fsWJBXxDN2FjOkHL81_U73UBALSCAQzfYgAq5p2svegTT_L2aAuLeXjNP6JUolChMMdq1GpDJvc7uW-Gt0votT8utHX-njPRpe5KBtGcuMNBPb1GPCER0xrWT7pa1LE0rMCNB0JkhP1wTLTszfqYqgfIBM3tXkRzO8u3eFvHHf-ArpMc_KMaeDlRX64oC0o5963cze-2cRtg-YqNjDttcxBaEXLO_pwDskDGmMNhmKpwFfXeAKf0z26lmkvub3Hf_V', alt: 'Jeddah skyline project' },
-                { src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDyusOPJpqiHmq4PrUlyUxYBJm0Z8HLoIyVAV4rXZdNPdBbNQ5mDRhgqu2K8QXXRSVdU5AjgUVqhrZfoHsTSMShk_IHUnbOdhqYt9OmM60PCUtc0y-qbMkEiEUJ0MrsfgvCiURFSeg8s3y2o0FykMA3zXNRxyByeFepwgJH3duVSclR5Otc9fwa_tfjF3tC5eeVk0PwUQb_Dx3iKn_lyVpEH3FKzXJXPkkfzis8f-J4LCY6Z8ZDz7dNpsbs-N--ZuLdgK2e06EG3mxu', alt: 'Welding worker' },
-                { src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBlgMR4BIGUxcw4-Qtku9JoG5kXTuFjQq9tkErls3GNltP1-DIyP2e8X0Wn5H-qJ1T7BriZwEMMjiupNokV42iilcOJFf2QzREEBPrX4PPsA5dlZObJGvY02aMP06nmRXDpzSMrf6qEbTAJuFydr7gElmvK8dVhGH6c74g3fwDlQtTuVQtc-Xb7VJc1igO3DekDdYOr5LjuRr5tdmRkio39oUAl0RqAHy-HMaABObhPn8RDYeYf2-TEIqwm_kBSbGrAQHNI2odTX9AW', alt: 'Crane operation' },
-                { src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAZAIQ0Q36aZeQUNmVjmz_fGYam9iN8fxj4nyBFl3ydGzUggnnS7DsZsgGMl37xw0Je1Czg8zF98s5zccDmEs03rwsSUag7fK14oUKx-TwUYJ5CSYtlB5K2U8_92-9b7GSrBTUfYWR6K_afjUf3xc-bO7rS6Ozxv2avs1REWbGf2adUFVbLTO9Ei0hHGPTXVX25gJ4yAjHP0tydCFn2YPX0uGnbP7pK_P7cnKaOcSXI6CDn9BIm-oVCZs-r_LGlkDzdfQzX1qMN3p38', alt: 'Construction meeting' },
+                { src: civilWorker, alt: 'Civil Construction' },
+                { src: mechanicalEngineer, alt: 'Mechanical Engineering' },
+                { src: electricalWorks, alt: 'Electrical Installation' },
+                { src: welders, alt: 'Precision Welding' },
+                { src: hvacWorkers, alt: 'HVAC Installation' },
+                { src: plumbingPiping, alt: 'Plumbing & Piping' },
+                { src: forkLiftOperator, alt: 'Heavy Equipment Operation' },
+                { src: metalFactory, alt: 'Industrial Metal Fabrication' },
+                { src: craneOperator, alt: 'Crane Operator on Site' },
               ].map((img) => (
                 <div key={img.alt} className="break-inside-avoid overflow-hidden rounded-2xl">
                   <img
