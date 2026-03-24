@@ -747,28 +747,42 @@ export default function App() {
       </main>
 
       {/* ── Footer ────────────────────────────────────────────── */}
-      <footer className="ag-footer bg-background-light px-6 py-12 lg:px-12 border-t border-slate-200">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-            <div className="flex items-center gap-3">
-              <img src="/SMC_logo.png" alt="SMC Logo" className="h-8 w-auto object-contain" />
-              <span className="text-sm font-black uppercase text-forest-green">
-                <span className="font-['Sansation'] text-base">Shams Modern</span> Contracting
-              </span>
+      <footer className="ag-footer relative bg-forest-green text-white px-6 py-20 lg:px-12 overflow-hidden border-t-0">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+        <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div className="mx-auto max-w-7xl pt-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-24 mb-24 relative z-10">
+            <div className="md:col-span-5 flex flex-col items-start">
+              <img src="/SMC_logo.png" alt="SMC Logo" className="h-16 w-auto object-contain mb-10 filter brightness-0 invert opacity-90" />
+              <h2 className="text-4xl lg:text-5xl font-['Sansation'] font-bold leading-tight uppercase tracking-tight text-white/90">
+                Build With<br/><span className="text-primary">Precision.</span>
+              </h2>
             </div>
-            <div className="flex flex-wrap justify-center gap-8 text-sm font-semibold text-slate-500">
-              <a className="hover:text-forest-green transition-colors duration-300" href="mailto:info@shamsmodern.com">info@shamsmodern.com</a>
-              <span>+966 12 667 0000</span>
-              <a 
-                className="hover:text-forest-green transition-colors duration-300" 
-                href="https://linkedin.com/company/shams-modern-contracting"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-              </a>
+            
+            <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-12 pt-4">
+              <div className="flex flex-col">
+                <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-6">Reach Us</h4>
+                <a className="block text-xl font-medium text-white/80 hover:text-white transition-colors duration-300" href="mailto:info@shamsmodern.com">info@shamsmodern.com</a>
+                <a className="block text-xl font-medium text-white/80 hover:text-white transition-colors duration-300 mt-2" href="tel:+966503677947">+966 503677947</a>
+              </div>
+              
+              <div className="flex flex-col">
+                <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-6">Headquarters</h4>
+                <p className="text-base text-white/60 leading-relaxed max-w-xs">
+                  Building 3242, Salamah Ibn Zuhair,<br />
+                  7908 Al Bawadi, Jeddah 23443,<br />
+                  KSA
+                </p>
+              </div>
             </div>
-            <p className="text-xs font-medium text-slate-400">© 2024 Shams Modern Contracting LLC. All rights reserved.</p>
+          </div>
+          
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end border-t border-white/10 pt-8 pb-4 relative z-10">
+            <span className="text-xs font-black uppercase tracking-widest text-white/40 mb-4 md:mb-0">
+                <span className="font-['Sansation'] text-sm text-white/70">Shams Modern</span> Contracting
+            </span>
+            <p className="text-[11px] font-medium tracking-wide text-white/40">© 2026 Shams Modern Contracting LLC. All rights reserved.</p>
           </div>
         </div>
       </footer>
