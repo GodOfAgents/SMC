@@ -325,8 +325,8 @@ export default function App() {
           <div className="flex items-center gap-2 sm:gap-3 shrink-0 min-w-0">
             <img src="/SMC_logo.png" alt="SMC Logo" className="h-8 sm:h-10 w-auto object-contain drop-shadow-md shrink-0 block" />
             <div className="flex flex-col min-w-0">
-              <span className="text-sm sm:text-xl font-bold leading-none tracking-tight text-forest-green uppercase font-['Sansation'] truncate">Shams Modern</span>
-              <span className="text-[7px] sm:text-[10px] font-medium tracking-[0.1em] sm:tracking-[0.2em] text-forest-green/60 uppercase mt-0.5 truncate">Contracting LLC</span>
+              <span className="text-xl font-extrabold leading-none tracking-tight text-forest-green uppercase font-['Sansation'] truncate">Shams Modern</span>
+              <span className="text-[10px] font-medium tracking-[0.2em] text-forest-green/60 uppercase mt-0.5 truncate">Contracting LLC</span>
             </div>
           </div>
           <nav className="hidden items-center gap-8 lg:flex">
@@ -364,7 +364,7 @@ export default function App() {
         </nav>
       </div>
 
-      <main className="pt-20">
+      <main className="pt-16">
 
         {/* ── Hero ──────────────────────────────────────────────── */}
         <section className="relative overflow-hidden bg-white px-6 py-16 lg:px-12 lg:py-24">
