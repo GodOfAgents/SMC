@@ -321,12 +321,12 @@ export default function App() {
         ref={headerRef}
         className="fixed top-0 left-0 z-50 w-full ag-glass-light border-b border-black/5 shadow-xl shadow-forest-green/5"
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
-          <div className="flex items-center gap-3">
-            <img src="/SMC_logo.png" alt="SMC Logo" className="h-10 w-auto object-contain drop-shadow-md" />
-            <div className="flex flex-col">
-              <span className="text-xl font-bold leading-none tracking-tight text-forest-green uppercase font-['Sansation']">Shams Modern</span>
-              <span className="text-[10px] font-medium tracking-[0.2em] text-forest-green/60 uppercase mt-0.5">Contracting LLC</span>
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 py-3 sm:py-4 lg:px-12 overflow-hidden">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 min-w-0">
+            <img src="/SMC_logo.png" alt="SMC Logo" className="h-8 sm:h-10 w-auto object-contain drop-shadow-md shrink-0 block" />
+            <div className="flex flex-col min-w-0">
+              <span className="text-sm sm:text-xl font-bold leading-none tracking-tight text-forest-green uppercase font-['Sansation'] truncate">Shams Modern</span>
+              <span className="text-[7px] sm:text-[10px] font-medium tracking-[0.1em] sm:tracking-[0.2em] text-forest-green/60 uppercase mt-0.5 truncate">Contracting LLC</span>
             </div>
           </div>
           <nav className="hidden items-center gap-8 lg:flex">
@@ -339,12 +339,12 @@ export default function App() {
             </a>
           </nav>
           <button
-            className="lg:hidden text-forest-green p-2 z-50"
+            className="lg:hidden text-forest-green p-1 sm:p-2 z-50 shrink-0 outline-none"
             aria-label={mobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
             {...(mobileMenuOpen ? { "aria-expanded": "true" } : { "aria-expanded": "false" })}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            <span className="material-symbols-outlined text-2xl">
+            <span className="material-symbols-outlined text-2xl sm:text-3xl">
               {mobileMenuOpen ? 'close' : 'menu'}
             </span>
           </button>
