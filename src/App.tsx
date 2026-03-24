@@ -310,8 +310,8 @@ export default function App() {
           <div className="flex items-center gap-3">
             <img src="/SMC_logo.png" alt="SMC Logo" className="h-10 w-auto object-contain drop-shadow-md" />
             <div className="flex flex-col">
-              <span className="text-lg font-bold leading-none tracking-tight text-forest-green uppercase">Shams Modern</span>
-              <span className="text-[10px] font-medium tracking-[0.2em] text-forest-green/60 uppercase">Contracting LLC</span>
+              <span className="text-xl font-bold leading-none tracking-tight text-forest-green uppercase font-['Sansation']">Shams Modern</span>
+              <span className="text-[10px] font-medium tracking-[0.2em] text-forest-green/60 uppercase mt-0.5">Contracting LLC</span>
             </div>
           </div>
           <nav className="hidden items-center gap-8 lg:flex">
@@ -752,7 +752,9 @@ export default function App() {
           <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
             <div className="flex items-center gap-3">
               <img src="/SMC_logo.png" alt="SMC Logo" className="h-8 w-auto object-contain" />
-              <span className="text-sm font-black uppercase text-forest-green">Shams Modern Contracting</span>
+              <span className="text-sm font-black uppercase text-forest-green">
+                <span className="font-['Sansation'] text-base">Shams Modern</span> Contracting
+              </span>
             </div>
             <div className="flex flex-wrap justify-center gap-8 text-sm font-semibold text-slate-500">
               <a className="hover:text-forest-green transition-colors duration-300" href="mailto:info@shamsmodern.com">info@shamsmodern.com</a>
