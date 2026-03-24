@@ -319,7 +319,7 @@ export default function App() {
       {/* ── Header ─────────────────────────────────────────────── */}
       <header
         ref={headerRef}
-        className="fixed top-0 left-0 z-50 w-full ag-glass-light border-b border-black/5 shadow-xl shadow-forest-green/5"
+        className="fixed top-0 left-0 z-50 w-full max-w-[100vw] overflow-hidden ag-glass-light border-b border-black/5 shadow-xl shadow-forest-green/5"
       >
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 py-3 sm:py-4 lg:px-12 overflow-hidden">
           <div className="flex items-center gap-2 sm:gap-3 shrink-0 min-w-0">
@@ -349,20 +349,20 @@ export default function App() {
             </span>
           </button>
         </div>
-
-        {/* Mobile Menu Overlay */}
-        <div className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-          <div className="absolute inset-0 bg-forest-green/90 backdrop-blur-xl" onClick={() => setMobileMenuOpen(false)} />
-          <nav className="relative flex flex-col items-center justify-center h-full gap-8 text-white p-6">
-            <a className="text-2xl font-bold hover:text-primary transition-colors" href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
-            <a className="text-2xl font-bold hover:text-primary transition-colors" href="#partners" onClick={() => setMobileMenuOpen(false)}>Partners</a>
-            <a className="text-2xl font-bold hover:text-primary transition-colors" href="#compliance" onClick={() => setMobileMenuOpen(false)}>Compliance</a>
-            <a className="rounded-full bg-primary px-8 py-3 text-lg font-bold text-forest-green shadow-lg shadow-primary/30" href="#request" onClick={() => setMobileMenuOpen(false)}>
-              Request Manpower
-            </a>
-          </nav>
-        </div>
       </header>
+
+      {/* Mobile Menu Overlay — outside header to prevent header sizing issues */}
+      <div className={`fixed inset-0 z-[55] lg:hidden transition-all duration-500 ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <div className="absolute inset-0 bg-forest-green/90 backdrop-blur-xl" onClick={() => setMobileMenuOpen(false)} />
+        <nav className="relative flex flex-col items-center justify-center h-full gap-8 text-white p-6">
+          <a className="text-2xl font-bold hover:text-primary transition-colors" href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
+          <a className="text-2xl font-bold hover:text-primary transition-colors" href="#partners" onClick={() => setMobileMenuOpen(false)}>Partners</a>
+          <a className="text-2xl font-bold hover:text-primary transition-colors" href="#compliance" onClick={() => setMobileMenuOpen(false)}>Compliance</a>
+          <a className="rounded-full bg-primary px-8 py-3 text-lg font-bold text-forest-green shadow-lg shadow-primary/30" href="#request" onClick={() => setMobileMenuOpen(false)}>
+            Request Manpower
+          </a>
+        </nav>
+      </div>
 
       <main className="pt-20">
 
