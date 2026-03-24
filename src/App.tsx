@@ -42,8 +42,8 @@ function FaqItem({ question, answer }: FaqItemProps) {
 
   return (
     <div className="rounded-2xl border border-slate-100 bg-slate-50/50 p-6 cursor-pointer" onClick={() => setOpen(o => !o)}>
-      <button 
-        className="flex w-full items-center justify-between text-left" 
+      <button
+        className="flex w-full items-center justify-between text-left"
         {...(open ? { "aria-expanded": "true" } : { "aria-expanded": "false" })}
         aria-label={open ? 'Close answer' : 'Open answer'}
       >
@@ -54,8 +54,8 @@ function FaqItem({ question, answer }: FaqItemProps) {
           expand_more
         </span>
       </button>
-      <div 
-        ref={bodyRef} 
+      <div
+        ref={bodyRef}
         className="ag-collapse"
       >
         <p className="mt-4 text-sm text-slate-600">{answer}</p>
@@ -126,7 +126,7 @@ export default function App() {
     if (prefersReduced) return;
 
     // ── Header slide down ──────────────────────────────────────
-    gsap.fromTo(headerRef.current, 
+    gsap.fromTo(headerRef.current,
       { y: -100, opacity: 0 },
       {
         y: 0,
@@ -323,8 +323,8 @@ export default function App() {
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </a>
           </nav>
-          <button 
-            className="lg:hidden text-forest-green p-2 z-50" 
+          <button
+            className="lg:hidden text-forest-green p-2 z-50"
             aria-label={mobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
             {...(mobileMenuOpen ? { "aria-expanded": "true" } : { "aria-expanded": "false" })}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -730,8 +730,8 @@ export default function App() {
                     Submit Request
                     <span className="material-symbols-outlined">send</span>
                   </button>
-                  <a 
-                    className="rounded-xl bg-white/10 px-8 py-5 text-center font-bold hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 border border-white/10" 
+                  <a
+                    className="rounded-xl bg-white/10 px-8 py-5 text-center font-bold hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 border border-white/10"
                     href="https://wa.me/966500000000"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -747,43 +747,80 @@ export default function App() {
       </main>
 
       {/* ── Footer ────────────────────────────────────────────── */}
-      <footer className="ag-footer relative bg-forest-green text-white px-6 py-20 lg:px-12 overflow-hidden border-t-0">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-        <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
-
-        <div className="mx-auto max-w-7xl pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-24 mb-24 relative z-10">
-            <div className="md:col-span-5 flex flex-col items-start">
-              <img src="/SMC_logo.png" alt="SMC Logo" className="h-16 w-auto object-contain mb-10 filter brightness-0 invert opacity-90" />
-              <h2 className="text-4xl lg:text-5xl font-['Sansation'] font-bold leading-tight uppercase tracking-tight text-white/90">
-                Build With<br/><span className="text-primary">Precision.</span>
-              </h2>
+      {/* ── Footer ────────────────────────────────────────────── */}
+      <footer className="ag-footer border-t border-slate-200 bg-white pt-20 pb-10">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+            
+            {/* Logo & Brand Info */}
+            <div className="lg:col-span-5 flex flex-col items-start">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-forest-green shadow-md">
+                  <img src="/SMC_logo.png" alt="SMC Logo" className="h-8 w-auto object-contain filter brightness-0 invert" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xl font-bold leading-none tracking-tight text-forest-green uppercase font-['Sansation']">Shams Modern</span>
+                  <span className="text-[11px] font-medium tracking-[0.2em] text-slate-500 uppercase mt-1">Contracting LLC</span>
+                </div>
+              </div>
+              <p className="text-slate-600 leading-relaxed max-w-sm mb-6">
+                Jeddah's premier manpower partner. Delivering certified, highly skilled professionals across civil, mechanical, and electrical sectors.
+              </p>
             </div>
             
-            <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-12 pt-4">
-              <div className="flex flex-col">
-                <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-6">Reach Us</h4>
-                <a className="block text-xl font-medium text-white/80 hover:text-white transition-colors duration-300" href="mailto:info@shamsmodern.com">info@shamsmodern.com</a>
-                <a className="block text-xl font-medium text-white/80 hover:text-white transition-colors duration-300 mt-2" href="tel:+966503677947">+966 503677947</a>
-              </div>
-              
-              <div className="flex flex-col">
-                <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-6">Headquarters</h4>
-                <p className="text-base text-white/60 leading-relaxed max-w-xs">
+            {/* Reach Us */}
+            <div className="lg:col-span-3 lg:col-start-7 flex flex-col">
+              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-6 border-b border-primary/30 pb-2 inline-block max-w-max">Reach Us</h4>
+              <ul className="space-y-4">
+                <li>
+                  <a href="mailto:info@shamsmodern.com" className="group flex items-center gap-3 text-slate-600 hover:text-forest-green transition-colors p-1 -ml-1 rounded-md">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-md bg-slate-50 text-slate-400 group-hover:bg-primary/20 group-hover:text-forest-green transition-colors">
+                      <span className="material-symbols-outlined text-[18px]">mail</span>
+                    </div>
+                    <span className="font-medium">info@shamsmodern.com</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:+966503677947" className="group flex items-center gap-3 text-slate-600 hover:text-forest-green transition-colors p-1 -ml-1 rounded-md">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-md bg-slate-50 text-slate-400 group-hover:bg-primary/20 group-hover:text-forest-green transition-colors">
+                      <span className="material-symbols-outlined text-[18px]">phone</span>
+                    </div>
+                    <span className="font-medium">+966 503677947</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Headquarters */}
+            <div className="lg:col-span-3 flex flex-col">
+              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-6 border-b border-forest-green/10 pb-2 inline-block max-w-max">Headquarters</h4>
+              <div className="flex gap-4">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-slate-50 text-slate-400">
+                  <span className="material-symbols-outlined text-[18px]">location_on</span>
+                </div>
+                <p className="text-slate-600 leading-relaxed font-medium">
                   Building 3242, Salamah Ibn Zuhair,<br />
                   7908 Al Bawadi, Jeddah 23443,<br />
                   KSA
                 </p>
               </div>
             </div>
+
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 border-t border-slate-100 pt-8 mt-8">
+            <p className="text-sm text-slate-500 font-medium tracking-wide">
+              © 2026 Shams Modern Contracting LLC. All rights reserved.
+            </p>
+            <div className="flex items-center gap-6">
+              <a href="#services" className="text-sm text-slate-500 hover:text-forest-green font-medium transition-colors p-2 -m-2">Services</a>
+              <a href="#partners" className="text-sm text-slate-500 hover:text-forest-green font-medium transition-colors p-2 -m-2">Partners</a>
+              <a href="#compliance" className="text-sm text-slate-500 hover:text-forest-green font-medium transition-colors p-2 -m-2">Compliance</a>
+            </div>
           </div>
           
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-end border-t border-white/10 pt-8 pb-4 relative z-10">
-            <span className="text-xs font-black uppercase tracking-widest text-white/40 mb-4 md:mb-0">
-                <span className="font-['Sansation'] text-sm text-white/70">Shams Modern</span> Contracting
-            </span>
-            <p className="text-[11px] font-medium tracking-wide text-white/40">© 2026 Shams Modern Contracting LLC. All rights reserved.</p>
-          </div>
         </div>
       </footer>
     </div>
