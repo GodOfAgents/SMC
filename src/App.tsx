@@ -547,35 +547,60 @@ export default function App() {
           </div>
         </section>
 
-        {/* ── Project Gallery ───────────────────────────────────── */}
-        <section className="px-6 py-24 lg:px-12 bg-white">
-          <div className="mx-auto max-w-7xl">
-            <div className="mb-16">
-              <h2 className="text-3xl font-black text-forest-green lg:text-5xl">Project Presence</h2>
-              <p className="mt-4 text-slate-600">Glimpse of our workforce active across major construction sites in Jeddah and beyond.</p>
+        {/* ── Project Gallery (Carousel) ────────────────────────── */}
+        <section className="py-24 bg-slate-50 relative overflow-hidden">
+          <div className="mx-auto max-w-7xl px-6 lg:px-12 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <h2 className="text-3xl font-black text-forest-green lg:text-5xl tracking-tight">Project Presence</h2>
+              <p className="mt-4 text-lg text-slate-600 max-w-2xl">
+                Glimpse of our workforce active across major construction sites in Jeddah and beyond.
+              </p>
             </div>
-            <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-              {[
-                { src: civilWorker, alt: 'Civil Construction' },
-                { src: mechanicalEngineer, alt: 'Mechanical Engineering' },
-                { src: electricalWorks, alt: 'Electrical Installation' },
-                { src: welders, alt: 'Precision Welding' },
-                { src: hvacWorkers, alt: 'HVAC Installation' },
-                { src: plumbingPiping, alt: 'Plumbing & Piping' },
-                { src: forkLiftOperator, alt: 'Heavy Equipment Operation' },
-                { src: metalFactory, alt: 'Industrial Metal Fabrication' },
-                { src: craneOperator, alt: 'Crane Operator on Site' },
-              ].map((img) => (
-                <div key={img.alt} className="break-inside-avoid overflow-hidden rounded-2xl">
-                  <img
-                    alt={img.alt}
-                    className="ag-gallery-img w-full rounded-2xl shadow-lg hover:brightness-105 transition-[filter] duration-500"
-                    src={img.src}
-                    referrerPolicy="no-referrer"
-                  />
+            <div className="hidden md:flex items-center gap-3 text-xs font-bold text-forest-green uppercase tracking-widest bg-white px-5 py-2.5 rounded-full shadow-sm border border-slate-200">
+              <span className="material-symbols-outlined text-primary text-xl">swipe</span>
+              Scroll to explore
+            </div>
+          </div>
+          
+          {/* Carousel Track */}
+          <div className="flex overflow-x-auto gap-6 sm:gap-8 px-6 lg:px-12 pb-16 pt-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+            {[
+              { src: civilWorker, alt: 'Civil Construction', category: 'Civil' },
+              { src: mechanicalEngineer, alt: 'Mechanical Engineering', category: 'Mechanical' },
+              { src: electricalWorks, alt: 'Electrical Installation', category: 'Electrical' },
+              { src: welders, alt: 'Precision Welding', category: 'Fabrication' },
+              { src: hvacWorkers, alt: 'HVAC Installation', category: 'HVAC' },
+              { src: plumbingPiping, alt: 'Plumbing & Piping', category: 'Plumbing' },
+              { src: forkLiftOperator, alt: 'Heavy Equipment Operation', category: 'Logistics' },
+              { src: metalFactory, alt: 'Industrial Metal Fabrication', category: 'Industrial' },
+              { src: craneOperator, alt: 'Crane Operator on Site', category: 'Heavy Machinery' },
+            ].map((img, i) => (
+              <div 
+                key={img.alt} 
+                className="group relative flex-none w-[85vw] sm:w-[60vw] md:w-[420px] aspect-[4/3] rounded-[2rem] overflow-hidden snap-center lg:snap-start bg-slate-200 shadow-lg shadow-slate-200/50 cursor-pointer transform transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] hover:-translate-y-3 hover:shadow-2xl hover:shadow-forest-green/20"
+              >
+                {/* Image */}
+                <img
+                  alt={img.alt}
+                  src={img.src}
+                  className="w-full h-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110"
+                  loading={i > 2 ? 'lazy' : 'eager'}
+                />
+                
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-green/90 via-forest-green/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700"></div>
+                
+                {/* Content */}
+                <div className="absolute inset-x-0 bottom-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
+                  <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-md mb-4 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                    {img.category}
+                  </span>
+                  <h3 className="text-2xl font-bold text-white leading-tight drop-shadow-md">
+                    {img.alt}
+                  </h3>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </section>
 
