@@ -308,9 +308,7 @@ export default function App() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-forest-green text-primary shadow-lg shadow-forest-green/20">
-              <span className="material-symbols-outlined text-2xl">architecture</span>
-            </div>
+            <img src="/SMC_logo.png" alt="SMC Logo" className="h-10 w-auto object-contain drop-shadow-md" />
             <div className="flex flex-col">
               <span className="text-lg font-bold leading-none tracking-tight text-forest-green uppercase">Shams Modern</span>
               <span className="text-[10px] font-medium tracking-[0.2em] text-forest-green/60 uppercase">Contracting LLC</span>
@@ -753,9 +751,7 @@ export default function App() {
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
             <div className="flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded bg-forest-green text-primary shadow">
-                <span className="material-symbols-outlined text-xl">architecture</span>
-              </div>
+              <img src="/SMC_logo.png" alt="SMC Logo" className="h-8 w-auto object-contain" />
               <span className="text-sm font-black uppercase text-forest-green">Shams Modern Contracting</span>
             </div>
             <div className="flex flex-wrap justify-center gap-8 text-sm font-semibold text-slate-500">
