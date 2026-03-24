@@ -329,7 +329,7 @@ export default function App() {
               <span className="text-[10px] font-medium tracking-[0.2em] text-forest-green/60 uppercase mt-0.5 truncate">Contracting LLC</span>
             </div>
           </div>
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav aria-label="Main navigation" className="hidden items-center gap-8 lg:flex">
             <a className="text-sm font-semibold text-forest-green hover:text-primary transition-colors duration-300" href="#services">Services</a>
             <a className="text-sm font-semibold text-forest-green hover:text-primary transition-colors duration-300" href="#partners">Partners</a>
             <a className="text-sm font-semibold text-forest-green hover:text-primary transition-colors duration-300" href="#compliance">Compliance</a>
@@ -354,7 +354,7 @@ export default function App() {
       {/* Mobile Menu Overlay — outside header to prevent header sizing issues */}
       <div className={`fixed inset-0 z-[55] lg:hidden transition-all duration-500 ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
         <div className="absolute inset-0 bg-forest-green/90 backdrop-blur-xl" onClick={() => setMobileMenuOpen(false)} />
-        <nav className="relative flex flex-col items-center justify-center h-full gap-8 text-white p-6">
+        <nav aria-label="Mobile navigation" className="relative flex flex-col items-center justify-center h-full gap-8 text-white p-6">
           <a className="text-2xl font-bold hover:text-primary transition-colors" href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
           <a className="text-2xl font-bold hover:text-primary transition-colors" href="#partners" onClick={() => setMobileMenuOpen(false)}>Partners</a>
           <a className="text-2xl font-bold hover:text-primary transition-colors" href="#compliance" onClick={() => setMobileMenuOpen(false)}>Compliance</a>
@@ -367,7 +367,7 @@ export default function App() {
       <main className="pt-16">
 
         {/* ── Hero ──────────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-white px-6 py-16 lg:px-12 lg:py-24">
+        <section className="relative overflow-hidden bg-white px-6 py-16 lg:px-12 lg:py-24" id="hero" aria-label="Hero">
           <div ref={blob1Ref} className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
           <div ref={blob2Ref} className="absolute -left-20 bottom-0 h-64 w-64 rounded-full bg-sun-yellow/10 blur-3xl pointer-events-none" />
           <div className="mx-auto max-w-7xl">
