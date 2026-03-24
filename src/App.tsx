@@ -298,6 +298,21 @@ export default function App() {
     gsap.to(e.currentTarget, { y: 0, rotateX: 0, scale: 1, duration: 0.4, ease: 'power2.out' });
   };
 
+  // ── WhatsApp Submission ──────────────────────────────────────
+  const handleWhatsAppSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const type = document.getElementById('project-type') as HTMLSelectElement;
+    const category = document.getElementById('manpower-category') as HTMLSelectElement;
+    const duration = document.getElementById('est-duration') as HTMLSelectElement;
+    const workers = document.getElementById('workers-needed') as HTMLInputElement;
+    const location = document.getElementById('project-location') as HTMLInputElement;
+
+    const message = `*New Manpower Request*\n\n*Project Type:* ${type?.value || 'N/A'}\n*Manpower Category:* ${category?.value || 'N/A'}\n*Est. Duration:* ${duration?.value || 'N/A'}\n*Workers Needed:* ${workers?.value || 'N/A'}\n*Project Location:* ${location?.value || 'N/A'}`;
+    
+    const whatsappUrl = `https://wa.me/966503677947?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="min-h-screen bg-slate-50">
 
@@ -688,7 +703,7 @@ export default function App() {
                 <h2 className="text-3xl font-black lg:text-5xl">Request Manpower</h2>
                 <p className="mt-4 text-primary/80">Get a professional quote within 24 hours</p>
               </div>
-              <form className="space-y-8 relative">
+              <form className="space-y-8 relative" onSubmit={handleWhatsAppSubmit}>
                 <div className="grid gap-6 md:grid-cols-2">
                   <div className="space-y-2">
                     <label htmlFor="project-type" className="text-xs font-bold uppercase tracking-widest text-primary">Project Type</label>
@@ -732,12 +747,10 @@ export default function App() {
                   </button>
                   <a
                     className="rounded-xl bg-white/10 px-8 py-5 text-center font-bold hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 border border-white/10"
-                    href="https://wa.me/966500000000"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="tel:+966503677947"
                   >
-                    <span className="material-symbols-outlined text-sun-yellow">chat</span>
-                    WhatsApp Now
+                    <span className="material-symbols-outlined text-sun-yellow">phone</span>
+                    Call Now
                   </a>
                 </div>
               </form>
