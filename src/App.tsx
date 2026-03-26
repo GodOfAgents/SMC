@@ -812,11 +812,11 @@ export default function App() {
               <h4 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-6 border-b border-primary/30 pb-2 inline-block max-w-max">Reach Us</h4>
               <ul className="space-y-4">
                 <li>
-                  <a href="mailto:info@shamsmodern.com" className="group flex items-center gap-3 text-slate-600 hover:text-forest-green transition-colors p-1 -ml-1 rounded-md">
+                  <a href="mailto:anower.shams1971@gmail.com" className="group flex items-center gap-3 text-slate-600 hover:text-forest-green transition-colors p-1 -ml-1 rounded-md">
                     <div className="flex h-8 w-8 items-center justify-center rounded-md bg-slate-50 text-slate-400 group-hover:bg-primary/20 group-hover:text-forest-green transition-colors">
                       <span className="material-symbols-outlined text-[18px]">mail</span>
                     </div>
-                    <span className="font-medium">info@shamsmodern.com</span>
+                    <span className="font-medium">anower.shams1971@gmail.com</span>
                   </a>
                 </li>
                 <li>
